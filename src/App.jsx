@@ -1,28 +1,33 @@
-import { useState } from 'react'
+import Navbar from './components/Navbar';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import Tracks from './components/Tracks';
+import Footer from './components/Footer';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
+    <div className="min-h-screen bg-[#0b0b12] text-white antialiased">
+      <Navbar />
+
+      {/* Subtle background accents */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute -top-20 -left-20 h-80 w-80 rounded-full blur-3xl opacity-30" style={{
+          background: 'radial-gradient(closest-side, rgba(99,102,241,0.35), transparent)'
+        }} />
+        <div className="absolute -bottom-24 -right-24 h-96 w-96 rounded-full blur-3xl opacity-30" style={{
+          background: 'radial-gradient(closest-side, rgba(34,211,238,0.28), transparent)'
+        }} />
       </div>
+
+      <main>
+        <Hero />
+        <Features />
+        <Tracks />
+      </main>
+
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
